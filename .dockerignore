@@ -1,0 +1,6 @@
+# Dockerfiles
+.gitignore
+.dockerignore
+Dockerfile
+# Artifacts produced during Build/Installation
+node_modules
