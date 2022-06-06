@@ -11,6 +11,9 @@ import {
 
 import useResizeObserver from "../hooks/useResizeObserver";
 
+import logo from '../images/Ericsson_logo.svg'
+import swLogo from '../images/swLogo.png'
+
 const NewGraph = ({nodeData, linkData}) => {
   // Container elements reference, container dimensions
   const svgRef = useRef();
@@ -22,24 +25,9 @@ const NewGraph = ({nodeData, linkData}) => {
     if (!dimensions) return; // Exits if could not solve for dimensions
 
     // Compute data
-    // const nodeData = [
-    //     {"id":"1", "x": -10, "y": -10}, 
-    //     {"id":"2", "x": 10, "y": 10},
-    //     {"id":"3", "x": 16, "y": 21},
-    //     {"id":"4", "x": -66, "y": 34},
-    //     {"id":"5", "x": 55, "y": -17}
-    // ]
-    // const linkData = [
-    //     {"source": "1", "target": "2"},
-    //     {"source": "2", "target": "3"},
-    //     {"source": "3", "target": "1"},
-    //     {"source": "1", "target": "4"},
-    //     {"source": "5", "target": "4"}
-    // ]
-
-    var linkCoords = []
+    var linkCoords = [];
     
-    computeLinkCoords()
+    computeLinkCoords();
     
     function computeLinkCoords () {
         linkCoords = []
@@ -51,7 +39,7 @@ const NewGraph = ({nodeData, linkData}) => {
                 "x2": nodeData.find(el => el.id == d.target).x,
                 "y2": nodeData.find(el => el.id == d.target).y,
             })
-        })
+        });
         // return coords;
     }
     
@@ -101,11 +89,20 @@ const NewGraph = ({nodeData, linkData}) => {
         var nodes = svg
           .selectAll(".node")
           .data(nodeData)
-          .join("circle")
+          // .join("circle")
+          // .attr("class", "node")
+          // .attr("r", 15)
+          // .attr("cx", node => node.x)
+          // .attr("cy", node => node.y)
+          // .join("svg:image")
+          .join("svg:image")
           .attr("class", "node")
-          .attr("r", 15)
-          .attr("cx", node => node.x)
-          .attr("cy", node => node.y)
+          // .attr("xlink:href", logo)
+          .attr("xlink:href", node => node.tech_type === 'Optical' ? logo : swLogo)
+          .attr("x", node => node.x)
+          .attr("y", node => node.y)
+          .attr("width", 64)
+          .attr("height", 64)
           .call(d3.drag().on('drag', (d)=>{
             d.subject.fx = d.x
             d.subject.fy = d.y
@@ -122,7 +119,7 @@ const NewGraph = ({nodeData, linkData}) => {
           .attr("font-size", 20)
           .text(node => node.id)
           .attr("x", node => node.x)
-          .attr("y", node => node.y - 20);
+          .attr("y", node => node.y -20);
 
 
         computeLinkCoords()

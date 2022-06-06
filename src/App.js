@@ -31,11 +31,22 @@ const App = () => {
   // server fetched JSON is reorganized in a custom format to draw topology graph
   var newNodes = []
   nodes.forEach(function(d) {
-    newNodes.push({"id": d.routerid})
+    newNodes.push({
+      "id": d.routerid,
+      "tech_type": d.tech_type
+    })
   })
   var newLinks = []
   links.forEach(function(d) {
-    newLinks.push({"source": d.srcrouterid, "target": d.dstrouterid})
+    newLinks.push({
+      "source": d.srcrouterid,
+      "target": d.dstrouterid,
+      "srcintf": d.srcintf,
+      "dstintf": d.dstintf,
+      "totBW": d.totBW,
+      "freeBW": d.freeBW,
+      "usedBW": d.usedBW
+    })
   })
 
   return (
@@ -47,6 +58,9 @@ const App = () => {
             <JsonSnippet title={"Nodes retrieved by Querying server"} jsonElem={nodes}/>
             <JsonSnippet title={"Links retrieved by Querying server"} jsonElem={links}/>
             </>}/>
+          <Route path='/images/' element={<>
+            
+          </>}/>
         </Routes>
       </div>
     </Router>
