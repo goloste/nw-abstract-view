@@ -58,9 +58,6 @@ const App = () => {
             <JsonSnippet title={"Nodes retrieved by Querying server"} jsonElem={nodes}/>
             <JsonSnippet title={"Links retrieved by Querying server"} jsonElem={links}/>
             </>}/>
-          <Route path='/images/' element={<>
-            
-          </>}/>
         </Routes>
       </div>
     </Router>

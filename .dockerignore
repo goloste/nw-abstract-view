@@ -3,4 +3,9 @@
 .dockerignore
 Dockerfile
 # Artifacts produced during Build/Installation
-node_modules
+/node_modules
+
+/components/BarChart.js
+/components/ForceDirecteGraph.js
+/components/ForceTreeChart.js
+/components/TopologyGraph.js

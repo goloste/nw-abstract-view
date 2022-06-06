@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 import {
   select,
@@ -6,12 +6,13 @@ import {
   forceSimulation,
   forceManyBody,
   forceCollide,
-  forceRadial
+  forceRadial,
 } from "d3";
 
 import useResizeObserver from "../hooks/useResizeObserver";
 
 import logo from '../images/Ericsson_logo.svg'
+// import logo from '../images/Ericsson_logo_shiny.svg'
 import swLogo from '../images/swLogo.png'
 
 const NewGraph = ({nodeData, linkData}) => {
@@ -25,8 +26,9 @@ const NewGraph = ({nodeData, linkData}) => {
     if (!dimensions) return; // Exits if could not solve for dimensions
 
     // Compute data
-    var linkCoords = [];
-    
+    var msg = ""
+
+    var linkCoords = [];    
     computeLinkCoords();
     
     function computeLinkCoords () {
@@ -34,10 +36,10 @@ const NewGraph = ({nodeData, linkData}) => {
         // var coords = []
         linkData.forEach(function(d) {
             linkCoords.push({
-                "x1": nodeData.find(el => el.id == d.source).x,
-                "y1": nodeData.find(el => el.id == d.source).y,
-                "x2": nodeData.find(el => el.id == d.target).x,
-                "y2": nodeData.find(el => el.id == d.target).y,
+                "x1": nodeData.find(el => el.id === d.source).x,
+                "y1": nodeData.find(el => el.id === d.source).y,
+                "x2": nodeData.find(el => el.id === d.target).x,
+                "y2": nodeData.find(el => el.id === d.target).y,
             })
         });
         // return coords;
@@ -68,7 +70,7 @@ const NewGraph = ({nodeData, linkData}) => {
           .data([{}])
           .join("text")
           .attr("class", "alpha")
-          .text("Some text inside SVG")
+          .text(`Some text inside SVG: ${msg}`)
           .attr("x", -dimensions.width / 2 + 10)
           .attr("y", -dimensions.height / 2 + 25);
 
@@ -78,12 +80,13 @@ const NewGraph = ({nodeData, linkData}) => {
           .data(linkCoords)
           .join("line")
           .attr("class", "link")
-          .attr("stroke", "black")
+          .attr("stroke-width", 5)
+          .attr("stroke", "gray")
           .attr("fill", "none")
           .attr("x1", link => link.x1)
           .attr("y1", link => link.y1)
           .attr("x2", link => link.x2)
-          .attr("y2", link => link.y2);
+          .attr("y2", link => link.y2)
 
         // nodes
         var nodes = svg
@@ -94,13 +97,14 @@ const NewGraph = ({nodeData, linkData}) => {
           // .attr("r", 15)
           // .attr("cx", node => node.x)
           // .attr("cy", node => node.y)
-          // .join("svg:image")
           .join("svg:image")
           .attr("class", "node")
-          // .attr("xlink:href", logo)
-          .attr("xlink:href", node => node.tech_type === 'Optical' ? logo : swLogo)
-          .attr("x", node => node.x)
-          .attr("y", node => node.y)
+          .attr("xlink:href", (node)=>{
+            if(node.tech_type === 'Optical') {return logo}
+            if(node.tech_type === 'Packet') {return swLogo}
+          })
+          .attr("x", node => node.x - 25)
+          .attr("y", node => node.y - 25)
           .attr("width", 64)
           .attr("height", 64)
           .call(d3.drag().on('drag', (d)=>{
@@ -115,7 +119,11 @@ const NewGraph = ({nodeData, linkData}) => {
             d.subject.fx = xCord
             d.subject.fy = yCord
             simulation.restart()
-          }));
+          }))
+          .on("click", d => {
+            window.alert(d)
+          });
+
 
         // labels
         var labels = svg
@@ -124,11 +132,10 @@ const NewGraph = ({nodeData, linkData}) => {
           .join("text")
           .attr("class", "label")
           .attr("text-anchor", "middle")
-          .attr("font-size", 20)
+          .attr("font-size", 30)
           .text(node => node.id)
           .attr("x", node => node.x)
           .attr("y", node => node.y -20);
-
 
         computeLinkCoords()
         simulation.restart()
@@ -148,7 +155,7 @@ const NewGraph = ({nodeData, linkData}) => {
 
   return (
     <div ref={wrapperRef} style={{ marginTop: "2rem", marginBottom: "5rem" }}>
-      <p>New Graph Component</p>
+      <h3>Network Topology Graph</h3>
       <svg ref={svgRef}></svg>
     </div>
   );

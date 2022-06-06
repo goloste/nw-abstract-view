@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   viewBox="0 0 64.05646 56.09162"
+   version="1.1"
+   sodipodiDocname="Ericsson_logo_shiny.svg"
+   inkscapeVersion="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscapeExport-filename="Ericsson_logo_shiny.png"
+   inkscapeExport-xdpi="96"
+   inkscapeExport-ydpi="96"
+   xmlnsInkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlnsSodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlnsXlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlnsSvg="http://www.w3.org/2000/svg"
+   xmlnsRdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlnsCc="http://creativecommons.org/ns#"
+   xmlnsDc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs58">
+    <linearGradient
+       inkscapeCollect="always"
+       id="linearGradient3458">
+      <stop
+         style="stop-color=#00e5ff;stop-opacity=1;"
+         offset="0"
+         id="stop3454" />
+      <stop
+         style="stop-color=#00e5ff;stop-opacity=0;"
+         offset="1"
+         id="stop3456" />
+    </linearGradient>
+    <linearGradient
+       inkscapeCollect="always"
+       id="linearGradient3297">
+      <stop
+         style="stop-color=#00e5ff;stop-opacity=1;"
+         offset="0"
+         id="stop3293" />
+      <stop
+         style="stop-color=#00e5ff;stop-opacity=0;"
+         offset="1"
+         id="stop3295" />
+    </linearGradient>
+    <linearGradient
+       inkscapeCollect="always"
+       xlinkHref="#linearGradient3458"
+       id="linearGradient3299"
+       x1="-0.0084473295"
+       y1="0.38231796"
+       x2="65.821892"
+       y2="57.293194"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscapeCollect="always"
+       xlinkHref="#linearGradient3297"
+       id="linearGradient3301"
+       gradientUnits="userSpaceOnUse"
+       x1="-0.0084473295"
+       y1="0.38231796"
+       x2="65.821892"
+       y2="57.293194" />
+  </defs>
+  <sodipodiNamedview
+     id="namedview56"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscapeShowpageshadow="2"
+     inkscapePageopacity="0.0"
+     inkscapePagecheckerboard="0"
+     inkscapeDeskcolor="#d1d1d1"
+     showgrid="false"
+     inkscapeZoom="18.30933"
+     inkscapeCx="17.25896"
+     inkscapeCy="45.495931"
+     inkscapeWindow-width="3840"
+     inkscapeWindow-height="2066"
+     inkscapeWindow-x="-11"
+     inkscapeWindow-y="-11"
+     inkscapeWindow-maximized="1"
+     inkscapeCurrent-layer="Layer_1" />
+  <title
+     id="title31">Ericsson logo</title>
+  <g
+     id="g3192-5"
+     style="fill=#ffffff;fill-opacity=1;stroke=none;stroke-width=1.00045;stroke-dasharray=none;stroke-opacity=1"
+     transform="matrix(1.0042808,0,0,1.0088235,0.08192569,0.02779199)">
+    <rect
+       style="fill=#ffffff;fill-opacity=1;stroke=none;stroke-width=1.00045;stroke-dasharray=none;stroke-opacity=1"
+       id="rect2403-9"
+       width="63.792614"
+       height="55.709301"
+       x="0"
+       y="-0.054616962" />
+  </g>
+  <g
+     id="g3192"
+     style="fill=url(#linearGradient3299);fill-opacity=1.0;stroke=none;stroke-opacity=1;stroke-width=1.00044748;stroke-dasharray=none"
+     transform="matrix(1.0042808,0,0,1.0088235,0,4.8191438e-4)">
+    <rect
+       style="fill=url(#linearGradient3301);fill-opacity=1.0;stroke=none;stroke-opacity=1;stroke-width=1.00044748;stroke-dasharray=none"
+       id="rect2403"
+       width="63.792614"
+       height="55.709301"
+       x="0"
+       y="-0.054616962" />
+  </g>
+  <g
+     id="g2349"
+     transform="matrix(0.97140033,0,0,0.97140033,0.92030449,0.79811408)">
+    <path
+       d="m 22.89539,14.92337 a 3.78649,3.78649 0 1 1 -2.6048,-7.1109 L 41.04425,0.2313 a 3.744,3.744 0 0 1 4.86621,2.256 3.64463,3.64463 0 0 1 -2.2533,4.73932 z"
+       fill="#00285e"
+       id="path33" />
+    <path
+       d="M 22.89539,26.17478 A 3.78643,3.78643 0 1 1 20.29059,19.064 l 20.75366,-7.57251 a 3.73082,3.73082 0 0 1 4.86621,2.248 3.63723,3.63723 0 0 1 -2.2533,4.73611 z"
+       fill="#00285e"
+       id="path35" />
+    <path
+       d="m 22.89539,37.42429 a 3.78631,3.78631 0 1 1 -2.6048,-7.1105 L 41.04425,22.7421 a 3.72937,3.72937 0 0 1 4.86621,2.2457 3.63853,3.63853 0 0 1 -2.2533,4.7373 z"
+       fill="#00285e"
+       id="path37" />
+    <polygon
+       points="2.379,52.224 2.379,53.882 6.999,53.882 6.999,55.902 0,55.902 0,46.781 6.882,46.781 6.882,48.674 2.379,48.674 2.379,50.214 6.763,50.214 6.763,52.224 "
+       fill="#00285e"
+       id="polygon39" />
+    <rect
+       x="17.793579"
+       y="46.781189"
+       width="2.49701"
+       height="9.1211901"
+       fill="#00285e"
+       id="rect41" />
+    <path
+       d="m 29.3053,47.01639 -0.1183,1.89289 c -2.0152,-1.05908 -5.10175,-0.7063 -5.10175,2.256 -0.11835,3.0795 3.08655,3.55029 5.22009,2.4812 l 0.1178,2.01071 c -3.6767,1.069 -7.95325,0 -7.95325,-4.49191 -4e-5,-4.2665 4.39431,-5.45348 7.83541,-4.14889 z"
+       fill="#00285e"
+       id="path43" />
+    <path
+       d="m 36.65839,46.89878 -0.1178,1.89291 c -1.30774,-0.7063 -3.67682,-0.7063 -3.67682,0.35321 0,1.65729 4.26648,0.48029 4.26648,3.91318 0,3.315 -4.0304,3.43271 -6.64569,2.59912 l 0.12793,-2.01071 c 1.65161,0.716 4.03076,0.95139 4.03076,-0.353 0,-1.53992 -4.27649,-0.70621 -4.27649,-3.91351 0,-2.7168 3.32282,-3.43268 6.29163,-2.4812 z"
+       fill="#00285e"
+       id="path45" />
+    <path
+       d="m 44.1286,46.89878 -0.11584,1.89291 c -1.30646,-0.7063 -3.67957,-0.7063 -3.67957,0.35321 0,1.65729 4.26691,0.48029 4.26691,3.91318 0,3.315 -4.02722,3.43271 -6.63409,2.59912 l 0.11786,-2.01071 c 1.66162,0.716 4.03113,0.95139 4.03113,-0.353 0,-1.53992 -4.26678,-0.70621 -4.26678,-3.91351 -10e-6,-2.7168 3.31194,-3.43268 6.28038,-2.4812 z"
+       fill="#00285e"
+       id="path47" />
+    <polygon
+       points="57.892,49.861 57.892,55.902 55.643,55.902 55.643,46.781 58.719,46.781 61.687,52.587 61.687,46.781 64.056,46.781 64.056,55.902 61.096,55.902 "
+       fill="#00285e"
+       id="polygon49" />
+    <path
+       d="m 47.924,51.2829 c 0,1.42209 0.5993,2.96188 1.89771,2.96188 1.42633,0 2.01361,-1.53979 2.01361,-2.96188 0,-1.18661 -0.58728,-2.96191 -2.01361,-2.96191 -1.29846,10e-6 -1.89771,1.5397 -1.89771,2.96191 z m 1.89771,-4.7373 c 2.61694,0 4.63049,1.42218 4.63049,4.7373 0,3.1973 -2.01355,4.73709 -4.63049,4.73709 -2.489,0 -4.5025,-1.53979 -4.5025,-4.73709 -6e-5,-3.31512 2.01349,-4.7373 4.50245,-4.7373 z"
+       fill="#00285e"
+       id="path51" />
+    <path
+       d="m 8.77875,46.78119 h 4.39441 c 1.29761,0 2.9588,0.4707 2.9588,2.36371 a 2.1819,2.1819 0 0 1 -1.66119,2.25558 1.28353,1.28353 0 0 1 0.83539,0.82391 c 0,0.11768 1.30762,3.56027 1.30762,3.678 H 13.9989 l -0.944,-2.8443 a 0.90869,0.90869 0 0 0 -0.83539,-0.5983 c -0.47192,0 -1.06189,-0.11771 -1.06189,0 v 3.4426 H 8.77875 Z m 2.37885,3.7858 h 1.2976 a 1.08689,1.08689 0 0 0 1.1898,-1.05942 c 0,-0.5983 -0.4718,-0.95148 -1.18976,-0.95148 h -1.29765 z"
+       fill="#00285e"
+       id="path53" />
+  </g>
+  <metadata
+     id="metadata3827">
+    <rdfRDF>
+      <ccWork
+         rdfAbout="">
+        <dcTitle>Ericsson logo</dcTitle>
+      </ccWork>
+    </rdfRDF>
+  </metadata>
+</svg>
