@@ -104,8 +104,16 @@ const NewGraph = ({nodeData, linkData}) => {
           .attr("width", 64)
           .attr("height", 64)
           .call(d3.drag().on('drag', (d)=>{
-            d.subject.fx = d.x
-            d.subject.fy = d.y
+
+            var xCord = d.x
+            var yCord = d.y
+            if (xCord >= dimensions.width/2 - 50) {xCord = dimensions.width/2 - 50}
+            if (xCord <= -dimensions.width/2 + 25) {xCord = -dimensions.width/2 + 25}
+            if (yCord >= dimensions.height/2 - 100) {yCord = dimensions.height/2 - 100}
+            if (yCord <= -dimensions.height/2 + 50) {yCord = -dimensions.height/2 + 50}
+
+            d.subject.fx = xCord
+            d.subject.fy = yCord
             simulation.restart()
           }));
 
