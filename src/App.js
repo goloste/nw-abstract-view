@@ -55,7 +55,7 @@ const App = () => {
       <div className="container">
         <Routes>
           <Route path='/' element={<>
-            <NewGraph nodeData={newNodes} linkData={newLinks}/>
+            <NewGraph nodeInput={newNodes} linkInput={newLinks}/>
             <JsonSnippet title={"Nodes retrieved by Querying server"} jsonElem={nodes}/>
             <JsonSnippet title={"Links retrieved by Querying server"} jsonElem={links}/>
             </>}/>

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 import {
   select,
@@ -8,18 +8,28 @@ import {
   forceCollide,
   forceRadial,
 } from "d3";
-
 import useResizeObserver from "../hooks/useResizeObserver";
-
-import logo from '../images/Ericsson_logo.svg'
-// import logo from '../images/Ericsson_logo_shiny.svg'
+// import logo from '../images/Ericsson_logo.svg'
+// import logo from '../images/Ericsson_logo_shiny_black.svg'
+import logo from '../images/Ericsson_logo_shiny_celestino.svg'
 import swLogo from '../images/swLogo.png'
 
-const NewGraph = ({nodeData, linkData}) => {
+const NewGraph = ({nodeInput, linkInput}) => {
   // Container elements reference, container dimensions
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
+
+  var nodeData = nodeInput
+  var linkData = linkInput
+  
+  // var [nodeData, setNodeData] = useState([])
+  // var [linkData, setLinkData] = useState([])
+  // setNodeData(nodeInput)
+  // setLinkData(linkInput)
+  // console.log(nodeInput)
+
+
 
   // Code Below is called initially and on every data change
   useEffect(() => {
@@ -28,7 +38,12 @@ const NewGraph = ({nodeData, linkData}) => {
     // Compute data
     const computeMsg = () => {
       if (nodeData != null) {
-        return "Current NW Topology :"
+        var currentdate = new Date();
+        var datetime = "Last Sync : " + currentdate.getDay() + "/" + currentdate.getMonth() 
+        + "/" + currentdate.getFullYear() + " " 
+        + currentdate.getHours() + ":" 
+        + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+        return datetime
       } else
       {
         return "It seems there is no topology information"
@@ -49,6 +64,13 @@ const NewGraph = ({nodeData, linkData}) => {
                 "y1": nodeData.find(el => el.id === d.source).y,
                 "x2": nodeData.find(el => el.id === d.target).x,
                 "y2": nodeData.find(el => el.id === d.target).y,
+                "source": d.source,
+                "srcintf": d.srcintf,
+                "destination": d.destination,
+                "dstintf": d.srcintf,
+                "totBW": d.totBW,
+                "freeBW": d.freeBW,
+                "usedBW": d.usedBW
             })
         });
         // return coords;
@@ -72,6 +94,7 @@ const NewGraph = ({nodeData, linkData}) => {
         // console.log("current force", simulation.alpha());
 
         // current alpha text
+        const msg = computeMsg()
         svg
           .selectAll(".alpha")
           .data(nodeData)
@@ -158,10 +181,10 @@ const NewGraph = ({nodeData, linkData}) => {
 
             var xCord = d.x
             var yCord = d.y
-            if (xCord >= dimensions.width/2 - 200) {xCord = dimensions.width/2 - 200}
-            if (xCord <= -dimensions.width/2 + 200) {xCord = -dimensions.width/2 + 200}
-            if (yCord >= dimensions.height/2 - 200) {yCord = dimensions.height/2 - 200}
-            if (yCord <= -dimensions.height/2 + 200) {yCord = -dimensions.height/2 + 200}
+            if (xCord >= dimensions.width/2 - 120) {xCord = dimensions.width/2 - 120}
+            if (xCord <= -dimensions.width/2 + 120) {xCord = -dimensions.width/2 + 120}
+            if (yCord >= dimensions.height/2 - 120) {yCord = dimensions.height/2 - 120}
+            if (yCord <= -dimensions.height/2 + 120) {yCord = -dimensions.height/2 + 120}
             
             d.subject.fx = xCord
             d.subject.fy = yCord
@@ -195,7 +218,7 @@ const NewGraph = ({nodeData, linkData}) => {
         simulation
           .alpha(0.5)
           .restart()
-          .force("orbit", forceRadial(100, x, y).strength(0.8))
+          .force("orbit", forceRadial(200, x, y).strength(0.8))
           .restart();
     });
 
@@ -206,8 +229,8 @@ const NewGraph = ({nodeData, linkData}) => {
       ]); // End of useEffect()
 
   return (
-    <div ref={wrapperRef} style={{ marginTop: "2rem", marginBottom: "5rem" }}>
-      <h3>Network Topology Graph</h3>
+    <div ref={wrapperRef} style={{ marginTop: "30rem", marginBottom: "5rem" }}>
+      <h1>Network Topology Graph</h1>
       <svg ref={svgRef}></svg>
     </div>
   );
