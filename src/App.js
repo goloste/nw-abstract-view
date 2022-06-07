@@ -33,7 +33,8 @@ const App = () => {
   nodes.forEach(function(d) {
     newNodes.push({
       "id": d.routerid,
-      "tech_type": d.tech_type
+      "tech_type": d.tech_type,
+      "toggle_info": true
     })
   })
   var newLinks = []

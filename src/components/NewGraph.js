@@ -26,7 +26,16 @@ const NewGraph = ({nodeData, linkData}) => {
     if (!dimensions) return; // Exits if could not solve for dimensions
 
     // Compute data
-    var msg = ""
+    const computeMsg = () => {
+      if (nodeData != null) {
+        return "Current NW Topology :"
+      } else
+      {
+        return "It seems there is no topology information"
+      }
+    }
+
+    const msg = computeMsg()
 
     var linkCoords = [];    
     computeLinkCoords();
@@ -45,8 +54,6 @@ const NewGraph = ({nodeData, linkData}) => {
         // return coords;
     }
     
-    // console.log(linkCoords)
-
     // Initialize svg
     const svg = select(svgRef.current); // Hooks to referenced html svg element
     // Centering
@@ -56,7 +63,7 @@ const NewGraph = ({nodeData, linkData}) => {
       dimensions.width,
       dimensions.height
     ]);
-    
+
     // Main simulation
     const simulation = forceSimulation(nodeData)
       .force("charge", forceManyBody().strength(-30))
@@ -67,10 +74,10 @@ const NewGraph = ({nodeData, linkData}) => {
         // current alpha text
         svg
           .selectAll(".alpha")
-          .data([{}])
+          .data(nodeData)
           .join("text")
           .attr("class", "alpha")
-          .text(`Some text inside SVG: ${msg}`)
+          .text(`${msg}`)
           .attr("x", -dimensions.width / 2 + 10)
           .attr("y", -dimensions.height / 2 + 25);
 
@@ -87,6 +94,46 @@ const NewGraph = ({nodeData, linkData}) => {
           .attr("y1", link => link.y1)
           .attr("x2", link => link.x2)
           .attr("y2", link => link.y2)
+        
+        // var infoRect =  svg
+        //   .selectAll(".infoRect")
+        //   .data(nodeData)
+        //   .join("rect")
+        //   .filter(function (d) { return d.toggle_info == true })
+        //   .attr("class", "infoRect")
+        //   .attr("width", 160)
+        //   .attr("height", 130)
+        //   .attr("fill", "navy")
+        //   .attr("x", node => node.x)
+        //   .attr("y", node => node.y + 50)
+        
+        var infoText = svg
+          .selectAll(".infoText")
+          .data(nodeData)
+          .join("text")
+          .filter(function (d) { return d.toggle_info == true })
+          .attr("class", "infoText")
+          .attr("text-anchor", "middle")
+          .attr("font-size", 20)
+          .attr("fill", "green")
+          // .attr("x", node => node.x -100)
+          // .attr("y", node => node.y + 60)
+          .attr("x", function (node) {
+            if (node.x >= 0) {
+              return node.x + 60
+            } else {
+              return node.x - 60
+            }
+          })
+          .attr("y", function (node) {
+            if (node.y >= 0) {
+              return node.y + 60
+            } else {
+              return node.y - 80
+            }
+          })
+          .text(node => "Tech type: " + node.tech_type)
+        
 
         // nodes
         var nodes = svg
@@ -111,17 +158,17 @@ const NewGraph = ({nodeData, linkData}) => {
 
             var xCord = d.x
             var yCord = d.y
-            if (xCord >= dimensions.width/2 - 50) {xCord = dimensions.width/2 - 50}
-            if (xCord <= -dimensions.width/2 + 25) {xCord = -dimensions.width/2 + 25}
-            if (yCord >= dimensions.height/2 - 100) {yCord = dimensions.height/2 - 100}
-            if (yCord <= -dimensions.height/2 + 50) {yCord = -dimensions.height/2 + 50}
-
+            if (xCord >= dimensions.width/2 - 200) {xCord = dimensions.width/2 - 200}
+            if (xCord <= -dimensions.width/2 + 200) {xCord = -dimensions.width/2 + 200}
+            if (yCord >= dimensions.height/2 - 200) {yCord = dimensions.height/2 - 200}
+            if (yCord <= -dimensions.height/2 + 200) {yCord = -dimensions.height/2 + 200}
+            
             d.subject.fx = xCord
             d.subject.fy = yCord
             simulation.restart()
           }))
           .on("click", d => {
-            window.alert(d)
+            console.log("clicked on node")
           });
 
 
@@ -133,9 +180,10 @@ const NewGraph = ({nodeData, linkData}) => {
           .attr("class", "label")
           .attr("text-anchor", "middle")
           .attr("font-size", 30)
+          .attr("font-weight", 700)
           .text(node => node.id)
           .attr("x", node => node.x)
-          .attr("y", node => node.y -20);
+          .attr("y", node => node.y -30);
 
         computeLinkCoords()
         simulation.restart()
@@ -151,7 +199,11 @@ const NewGraph = ({nodeData, linkData}) => {
           .restart();
     });
 
-  }, [nodeData, linkData, dimensions]); // End of useEffect()
+  }, [
+        nodeData, 
+        linkData, 
+        dimensions
+      ]); // End of useEffect()
 
   return (
     <div ref={wrapperRef} style={{ marginTop: "2rem", marginBottom: "5rem" }}>
