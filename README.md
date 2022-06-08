@@ -1,6 +1,6 @@
 # Network Abstract View Visualizer
 
-![alt text](https://github.com/[goloste]/[nw-abstract-view]/blob/[svg_manipulations]/frontimage.jpg?raw=true)
+![alt text](https://raw.githubusercontent.com/goloste/nw-abstract-view/svg_manipulations/frontimage.JPG)
 
 This project is meant to be integrated in a GUI to provide for a dynamic topology representation.
 # Running
