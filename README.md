@@ -1,4 +1,7 @@
 # Network Abstract View Visualizer
+
+![alt text](https://github.com/[goloste]/[nw-abstract-view]/blob/[svg_manipulations]/frontimage.jpg?raw=true)
+
 This project is meant to be integrated in a GUI to provide for a dynamic topology representation.
 # Running
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
