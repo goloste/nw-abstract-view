@@ -6,10 +6,9 @@ In the project directory, you can run:
 ### `npm start` Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-# Containerization
+# Run as Docker image
 A Dockerfile is aviable to build and run the interface as a container.
-To create the Docker image tagged as 'nw-abstract-view', just go to main directory and run 
-```
-    docker build . -t nw-abstract-view
-
-```
+To create the Docker image tagged as 'nw-abstract-view', just go to main directory and run : 
+```docker build . -t nw-abstract-view```
+To run the image (in detached mode) redirecting to port XXXX use :
+```docker run -d -p XXXX:3000 -t nw-abstract-view```
