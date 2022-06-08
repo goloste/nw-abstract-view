@@ -1,0 +1,27 @@
+th, td {
+    padding: 15px;
+    align-items: center;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #04AA6D;
+    color: white;
+  }
+tr:hover {background-color: rgb(123, 227, 217);}
+/* tr:nth-child(even) {background-color: #f2f2f2;} */
+
+.button {
+  background-color: #2600ff; /* Green */
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 15px;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.button:hover {background-color: #ffcc00; color:rgb(0, 0, 0)}

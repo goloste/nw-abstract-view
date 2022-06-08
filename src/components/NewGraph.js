@@ -19,6 +19,7 @@ const NewGraph = ({nodeInput, linkInput}) => {
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
+  // const dimensions = {width: 500, height: 500}
 
   var nodeData = nodeInput
   var linkData = linkInput
@@ -134,8 +135,9 @@ const NewGraph = ({nodeInput, linkInput}) => {
           .selectAll(".infoText")
           .data(nodeData)
           .join("text")
-          .filter(function (d) { return d.toggle_info == true })
+          // .filter(function (d) { return d.toggle_info == true })
           .attr("class", "infoText")
+          .attr("id", node => node.id)
           .attr("text-anchor", "middle")
           .attr("font-size", 20)
           .attr("fill", "green")
@@ -190,8 +192,8 @@ const NewGraph = ({nodeInput, linkInput}) => {
             d.subject.fy = yCord
             simulation.restart()
           }))
-          .on("click", d => {
-            console.log("clicked on node")
+          .on("click", (d) => {
+            // console.log(`${d.index}`)
           });
 
 
@@ -229,7 +231,8 @@ const NewGraph = ({nodeInput, linkInput}) => {
       ]); // End of useEffect()
 
   return (
-    <div ref={wrapperRef} style={{ marginTop: "30rem", marginBottom: "5rem" }}>
+    // <div ref={wrapperRef} style={{ marginTop: "60rem", marginBottom: "5rem" }}>
+    <div ref={wrapperRef} style={{ marginTop: "60rem", marginBottom: "5rem" }}>
       <h1>Network Topology Graph</h1>
       <svg ref={svgRef}></svg>
     </div>

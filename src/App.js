@@ -1,5 +1,7 @@
 import './App.css';
 import JsonSnippet from './components/JsonSnippet';
+import JsonTableNodes from './components/JsonTableNodes';
+import JsonTableLinks from './components/JsonTableLinks';
 import NewGraph from './components/NewGraph';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import { useState, useEffect } from 'react';
@@ -56,8 +58,11 @@ const App = () => {
         <Routes>
           <Route path='/' element={<>
             <NewGraph nodeInput={newNodes} linkInput={newLinks}/>
-            <JsonSnippet title={"Nodes retrieved by Querying server"} jsonElem={nodes}/>
-            <JsonSnippet title={"Links retrieved by Querying server"} jsonElem={links}/>
+            <JsonTableNodes jsonData={nodes}/>
+            <JsonTableLinks jsonData={links}/>
+            {/* <NewGraph nodeInput={newNodes} linkInput={newLinks}/> */}
+            {/* <JsonSnippet title={"Nodes retrieved by Querying server"} jsonElem={nodes}/> */}
+            {/* <JsonSnippet title={"Links retrieved by Querying server"} jsonElem={links}/> */}
             </>}/>
         </Routes>
       </div>
