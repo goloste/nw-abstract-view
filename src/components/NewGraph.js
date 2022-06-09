@@ -229,10 +229,10 @@ const NewGraph = ({nodeInput, linkInput}) => {
         linkData, 
         dimensions
       ]); // End of useEffect()
-
+      var tMargin = `${(linkData.length + nodeData.length)*5}`+'rem'
   return (
     // <div ref={wrapperRef} style={{ marginTop: "60rem", marginBottom: "5rem" }}>
-    <div ref={wrapperRef} style={{ marginTop: "60rem", marginBottom: "5rem" }}>
+    <div ref={wrapperRef} style={{ marginTop: `${tMargin}`, marginBottom: "5rem" }}>
       <h1>Network Topology Graph</h1>
       <svg ref={svgRef}></svg>
     </div>
